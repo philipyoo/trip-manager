@@ -1,18 +1,12 @@
 # Trip Manager
 
-The idea for this mobile-friendly web application is to create my ideal trip planner application to store all details for a given trip.
+A mobile-friendly web application to plan out your trip.
 
-There are already some great trip planner apps out there, so I'm not exactly trying to reinvent the wheel here. I'm mostly building this application primarily for learning purposes while also building an application that I'd like to use for a Japan trip I'm planning on doing next Spring '24.
-
-As I'm learning Rails and React, those are the primary technologies I'm thinking of using.
-
-I'm primarily building this for my own personal use and I don't plan on marketing this or letting other users use this.
+There are some great trip planner apps out there already, and I'm not trying to reinvent the wheel here. The main purpose for building this application is to learn while building. I'd like to use this application to plan out a near future trip to Japan.
 
 
 ---
 ## The Idea
-
-NOTE: Below are the general ideas I'd like the application to have. But they are subject to change depending on difficulty of implementation, time available, etc.
 
 A user can create a **trip**. All details for a given trip will be contained in this section. A user may have many trips planned/created.
 
@@ -21,7 +15,7 @@ For a given trip, a user can create **itinerary** items. Itinerary items may hav
 - Different categories (e.g. flight details, hotel check-ins/outs, restaurant visits, events, tours, etc).
 - Optional alerts. Alerts may need to be sent via email since this is a web app. Depending on difficulty, maybe allow user to export details of either the whole trip or an itinerary item to their Google calendar and have alerts setup there.
 
-Additionally, a user can set **places of interest** either in some list or pins on a map. Places of interest are "extra" places that might like to visit. An itinerary item might allot a range of time at a certain location. Places of interest can be used as reference for things you might want to check out during that time there. Or maybe, you have extra time left over and you want to see what else you can do at a given location. Places of interest may have the following details/features:
+Additionally, a user can set **places of interest** either in some list or pins on a map. Places of interest are "extra" places that a user might like to visit. An itinerary item might allot a range of time at a certain location. Places of interest can be used as reference for things you might want to check out during that time there. Or maybe, you have extra time left over and you want to see what else you can do at a given location. Places of interest may have the following details/features:
 - General details. Allow user to write anything they want about the place of interest.
 - Category (e.g. food, event, sightsee location, etc).
 - Importance flag (e.g. Things I feel I really want to see if time is available).
