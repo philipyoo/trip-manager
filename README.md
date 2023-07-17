@@ -62,17 +62,18 @@ An **extra** section might be nice for general reference. This is definitely bey
   - [ ] A Trip has one or many Itinerary items.
   - [ ] A Trip has one or many Places of Interest items.
   - [ ] A Trip has one or many Checklist items.
-  - [ ] A Trip should have essential details outlined: Location(s), Date range.
+  - [ ] A Trip should have general details outlined: Title, Date range, Location(s). Date range and Location(s) can be auto-generated based on Itinerary items created.
 - [ ] A User can create an Itinerary item.
   - [ ] An Itinerary item is associated with a single Trip.
   - [ ] An Itinerary item should have either an estimated date, date range, or specific date.
-  - [ ] An Itinerary item can be categorized (e.g. flight details, hotel check-in/out, restaurant reservations, events, tours, etc). ~Needs further thought~
+  - [ ] An Itinerary item should have a destination Location (can be specific or general).
+  - [ ] An Itinerary item can be categorized (e.g. flight details, hotel check-in/out, restaurant reservations, events, tours, etc). ~Needs further thought, maybe these are adjusted by a User and provide defaults with color codes~
 - [ ] A User can create a Place of Interest item.
   - [ ] A User will need to put in general details for each Place of Interest, including name, type of attraction, address, etc.
   - [ ] Places of Interest can be shown as pins on a map.
   - [ ] Places of Interest can be shown as list items. Maybe sorted by distance from current location.
   - [ ] Places of Interest can be categorized (e.g. food, event, sightsee location, etc)
-  - [ ] Place of Interest may be given an importance flag to indicate something a User would like to do if alloted the time.
+  - [ ] A Place of Interest may be given an importance flag to indicate something a User would like to do if alloted the time.
 
 **Beyond MVP**
 
@@ -92,12 +93,15 @@ An **extra** section might be nice for general reference. This is definitely bey
   - [ ] Total spent so far.
   - [ ] Total budget allocated for trip.
   - [ ] Show time and date locally and back home.
+- [ ] A User can add alerts to Itinerary items and Checklist items. Maybe mobile alerts?
 
 
 ---
 ## Architecture
 
-TODO
+[Click here](docs/architecture.png)
+
+Please note that some technologies chosen may be overkill for this application. Main purpose is to learn and be exposed to different technologies and concepts.
 
 
 ---
@@ -109,4 +113,4 @@ TODO
 ---
 ## Database Relations
 
-TODO
+[Click here](docs/db-schema.png) to see an image of the database schema.
