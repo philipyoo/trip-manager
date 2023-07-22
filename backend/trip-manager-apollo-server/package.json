@@ -1,0 +1,23 @@
+{
+  "name": "trip-manager-apollo-server",
+  "version": "1.0.0",
+  "description": "Trip Manager Apollo Server Middleware",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc",
+    "start": "yarn run compile && node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "SEE LICENSE IN PROJECT ROOT DIRECTORY",
+  "type": "module",
+  "dependencies": {
+    "@apollo/datasource-rest": "^6.0.1",
+    "@apollo/server": "^4.8.1",
+    "graphql": "^16.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.3",
+    "typescript": "^5.1.6"
+  }
+}
