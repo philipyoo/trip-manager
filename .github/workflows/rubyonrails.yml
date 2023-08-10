@@ -13,6 +13,12 @@ on:
   pull_request:
     paths:
       - backend/trip-manager-api/**
+defaults:
+  run:
+    working-directory: ./backend/trip-manager-api
+env:
+  PROJECT_DIR: ./backend/trip-manager-api
+  RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -32,9 +38,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Install Ruby and gems
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          working-directory: ${{env.PROJECT_DIR}}
       - name: Set up database schema
         run: bundle exec rake db:schema:load
       - name: Run tests
@@ -46,12 +53,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Install Ruby and gems
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          working-directory: ${{env.PROJECT_DIR}}
       - name: Security audit dependencies
-        run: bin/bundler-audit --update
+        run: bundle exec bundle-audit check --update
       - name: Security audit application code
-        run: bin/brakeman -q -w2
+        run: bundle exec brakeman -q -w2
       - name: Lint Ruby files
-        run: bin/rubocop --parallel
+        run: bundle exec rubocop --parallel
