@@ -1,0 +1,21 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-graphql
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+Documentation:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 20
+Naming/MethodParameterName:
+  Enabled: false
+GraphQL/ArgumentDescription:
+  Enabled: false
+GraphQL/FieldDescription:
+  Enabled: false
+GraphQL/MaxComplexitySchema:
+  Enabled: false
+GraphQL/MaxDepthSchema:
+  Enabled: false
