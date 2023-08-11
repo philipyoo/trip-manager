@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 module Mutations
   class SignInUser < BaseMutation
     null true
+
+    description 'POST request to login'
 
     argument :credentials, Types::AuthProviderCredentialsInput, required: false
 
@@ -19,9 +23,9 @@ module Mutations
       crypt = ActiveSupport::MessageEncryptor.new(
         Rails.application.credentials.secret_key_base.byteslice(0..31)
       )
-      token = crypt.encrypt_and_sign("user-id:#{ user.id }")
+      token = crypt.encrypt_and_sign("user-id:#{user.id}")
 
-      { user: user , token: token }
+      { user:, token: }
     end
   end
 end

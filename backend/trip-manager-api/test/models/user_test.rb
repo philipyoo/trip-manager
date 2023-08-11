@@ -1,9 +1,10 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 TEST_EMAIL = 'TestUser@Example.com'
 
 class UserTest < ActiveSupport::TestCase
-
   def setup
     @user = perform(
       auth_provider: {
@@ -29,16 +30,16 @@ class UserTest < ActiveSupport::TestCase
     assert @user.persisted?
   end
 
-  test "email should be saved lowercase" do
+  test 'email should be saved lowercase' do
     assert_equal @user.email, TEST_EMAIL.downcase
   end
 
-  test "email should be present" do
-    @user.email = "   "
+  test 'email should be present' do
+    @user.email = '   '
     assert_not @user.valid?
   end
 
-  test "email should be unique, case insensitive" do
+  test 'email should be unique, case insensitive' do
     user2 = @user.dup
     # uniqueness should be case insensitive
     user2.email = @user.email.upcase
@@ -50,12 +51,12 @@ class UserTest < ActiveSupport::TestCase
     assert user2.errors[:email]
   end
 
-  test "email should not be too long" do
-    @user.email = "a" * 244 + "@example.com"
+  test 'email should not be too long' do
+    @user.email = "#{'a' * 244}@example.com"
     assert_not @user.valid?
   end
 
-  test "email validation should accept valid addresses" do
+  test 'email validation should accept valid addresses' do
     valid_addresses = %w[user@example.com USER@google.COM A_U-s+er@foo.bar.org first.last@foo.jp a+b@baz.cn]
 
     valid_addresses.each do |valid_address|
@@ -64,7 +65,7 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  test "email validation should reject invalid addresses" do
+  test 'email validation should reject invalid addresses' do
     invalid_addresses = %w[user@example,com user_at_example.org user.name@example.foo@baz.com foo@bar+baz.cn]
 
     invalid_addresses.each do |invalid_address|
@@ -73,17 +74,17 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  test "password should have a minimum length" do
-    @user.password = @user.password_confirmation = "a" * 5
+  test 'password should have a minimum length' do
+    @user.password = @user.password_confirmation = 'a' * 5
 
     assert_not @user.valid?
   end
 
-  test "user can login with correct password" do
+  test 'user can login with correct password' do
     login_response = sign_in_user(
       credentials: {
         email: TEST_EMAIL,
-        password: "[omitted]"
+        password: '[omitted]'
       }
     )
 
@@ -91,16 +92,15 @@ class UserTest < ActiveSupport::TestCase
     assert login_response[:token]
   end
 
-  test "user cannot login with incorrect password" do
+  test 'user cannot login with incorrect password' do
     # TODO: need better response
     login_response = sign_in_user(
       credentials: {
         email: TEST_EMAIL,
-        password: "INCORRECT_PASSWORD"
+        password: 'INCORRECT_PASSWORD'
       }
     )
 
     assert_not login_response
   end
-
 end
